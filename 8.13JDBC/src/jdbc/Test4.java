@@ -66,5 +66,6 @@ public class Test4 {
         for (Student student : studentList) {
             System.out.println(student);
         }
+
     }
 }
