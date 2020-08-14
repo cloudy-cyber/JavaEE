@@ -1,5 +1,6 @@
 package homework.jdbc;
 
+import homework.pojo.Product;
 import homework.pojo.User;
 import pojo.Student;
 
@@ -50,8 +51,28 @@ public class Test {
         JdbcUtils.closeConnection(conn,pstm1);
         //查华为
         conn = JdbcUtils.getConnection();
-        String sql2 = "select * from product where name like %?%";
+        String sql2 = "select * from product where name like ?";
         PreparedStatement pstm2 =conn.prepareStatement(sql2);
-
+        pstm2.setString(1,"%华为%");
+        ResultSet rs2 = pstm2.executeQuery();
+        List<Product> productList=new ArrayList<>();
+        while (rs2.next()){
+            Product product=new Product();
+            product.setId(rs2.getInt(1));
+            product.setName(rs2.getString(2));
+            product.setDescription(rs2.getString(3));
+            product.setPrice(rs2.getFloat(4));
+            product.setStock(rs2.getInt(5));
+            product.setCategoryLevel1Id(rs2.getInt(6));
+            product.setCategoryLevel2Id(rs2.getInt(7));
+            product.setCategoryLevel3Id(rs2.getInt(8));
+            product.setFileName(rs2.getString(9));
+            product.setIsDelete(rs2.getInt(10));
+            productList.add(product);
+        }
+        for (Product product : productList) {
+            System.out.println(product);
+        }
+        JdbcUtils.closeConnection(conn,pstm2);
     }
 }
