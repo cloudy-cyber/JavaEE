@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3189cff2-7b9d-48a7-a080-b7b1f3f0de63" name="Default Changelist" comment="updata 08-13">
-      <change beforePath="$PROJECT_DIR$/8.13JDBC/src/homework/jdbc/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.13JDBC/src/homework/jdbc/Test.java" afterDir="false" />
+    <list default="true" id="3189cff2-7b9d-48a7-a080-b7b1f3f0de63" name="Default Changelist" comment="updata 08-14">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/8.14JDBC.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/DAO步骤" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/TestUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/IBaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/impl/BaseDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/impl/ProductDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/dao/util/DataSourceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/pojo/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/test/TestProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/test/TestProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.14JDBC/src/test/TestUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaEE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/javaEE.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -27,8 +47,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/8.13JDBC/src" />
@@ -46,69 +71,80 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="homework.jdbc.Test" />
-      <module name="8.13JDBC" />
+  <component name="RunManager" selected="JUnit.TestUserDao.testDeleteUser">
+    <configuration name="TestProductDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="8.14JDBC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="homework.jdbc.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestProductDao" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.Test1" />
-      <module name="8.13JDBC" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/8.13JDBC" />
+    <configuration name="TestProperties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="8.14JDBC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jdbc.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestProperties" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.Test2" />
-      <module name="8.13JDBC" />
+    <configuration name="TestUserDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="8.14JDBC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jdbc.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUserDao" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.Test3" />
-      <module name="8.13JDBC" />
+    <configuration name="TestUserDao.testAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="8.14JDBC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jdbc.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUserDao" />
+      <option name="METHOD_NAME" value="testAddUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.Test4" />
-      <module name="8.13JDBC" />
+    <configuration name="TestUserDao.testDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="8.14JDBC" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jdbc.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestUserDao" />
+      <option name="METHOD_NAME" value="testDeleteUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test4" />
-        <item itemvalue="Application.Test3" />
-        <item itemvalue="Application.Test2" />
-        <item itemvalue="Application.Test1" />
+        <item itemvalue="JUnit.TestUserDao.testDeleteUser" />
+        <item itemvalue="JUnit.TestProductDao" />
+        <item itemvalue="JUnit.TestUserDao.testAddUser" />
+        <item itemvalue="JUnit.TestUserDao" />
+        <item itemvalue="JUnit.TestProperties" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597323387537</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updata 08-14">
+      <created>1597367254828</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597367254828</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,49 +213,58 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updata 08-13" />
-    <option name="LAST_COMMIT_MESSAGE" value="updata 08-13" />
+    <MESSAGE value="updata 08-14" />
+    <option name="LAST_COMMIT_MESSAGE" value="updata 08-14" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="208" y="31" key="#Project_Structure" timestamp="1597302028100">
+    <state x="276" y="40" width="1024" height="801" key="#Project_Structure" timestamp="1597475579479">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="208" y="31" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1597302028100" />
+    <state x="276" y="40" width="1024" height="801" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1597475579479" />
     <state x="396" y="70" key="#Test1" timestamp="1597302826533">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="396" y="70" key="#Test1/0.0.1440.900@0.0.1440.900" timestamp="1597302826533" />
-    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1597322353098">
+    <state x="478" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597374456652">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1597322353098" />
-    <state x="492" y="174" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597289360392">
+    <state x="478" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1597374456652" />
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1597478456614">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="492" y="174" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1440.900@0.0.1440.900" timestamp="1597289360392" />
-    <state width="1398" height="177" key="GridCell.Tab.0.bottom" timestamp="1597321597045">
+    <state x="533" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1597478456614" />
+    <state x="492" y="174" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1597475486707">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="177" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597321597045" />
-    <state width="1398" height="177" key="GridCell.Tab.0.center" timestamp="1597321597041">
+    <state x="492" y="174" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1440.900@0.0.1440.900" timestamp="1597475486707" />
+    <state x="505" y="327" key="DetectedRootsChooserDialog" timestamp="1597384716571">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="177" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597321597041" />
-    <state width="1398" height="177" key="GridCell.Tab.0.left" timestamp="1597321597040">
+    <state x="505" y="327" key="DetectedRootsChooserDialog/0.0.1440.900@0.0.1440.900" timestamp="1597384716571" />
+    <state width="1398" height="176" key="GridCell.Tab.0.bottom" timestamp="1597479065288">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="177" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597321597040" />
-    <state width="1398" height="177" key="GridCell.Tab.0.right" timestamp="1597321597043">
+    <state width="1398" height="176" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597479065288" />
+    <state width="1398" height="176" key="GridCell.Tab.0.center" timestamp="1597479065286">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="177" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597321597043" />
+    <state width="1398" height="176" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597479065286" />
+    <state width="1398" height="176" key="GridCell.Tab.0.left" timestamp="1597479065284">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="176" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597479065284" />
+    <state width="1398" height="176" key="GridCell.Tab.0.right" timestamp="1597479065287">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="176" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597479065287" />
     <state x="142" y="58" width="1024" height="797" key="SettingsEditor" timestamp="1597310430764">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="142" y="58" width="1024" height="797" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1597310430764" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1597323396523">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1597367271616">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597323396523" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597367271616" />
     <state x="521" y="235" key="chooseDestDirectoryDialog" timestamp="1597302062770">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -221,10 +273,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1597315950446" />
-    <state x="143" y="35" key="new project wizard" timestamp="1597301914171">
+    <state x="443" y="349" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1597375487861">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="143" y="35" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1597301914171" />
+    <state x="443" y="349" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900@0.0.1440.900" timestamp="1597375487861" />
+    <state x="143" y="35" key="new project wizard" timestamp="1597373729590">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="143" y="35" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1597373729590" />
   </component>
   <component name="hg4idea.settings">
     <option name="CHECK_INCOMING_OUTGOING" value="true" />

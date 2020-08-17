@@ -1,0 +1,48 @@
+package dao.impl;
+
+import dao.ProductDao;
+import pojo.Product;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
+    public ProductDaoImpl(Connection conn) {
+        super(conn);
+    }
+
+    @Override
+    public List<Product> getProductByKeyWords(String keyWords) throws Exception {
+        String sql = "select * from product where name like ? or description like ?";
+        Object[] param = new Object[2];
+        param[0] = "%" + keyWords + "%";
+        param[1] = "%" + keyWords + "%";
+        ResultSet rs = executeQuery(sql, param);
+        List<Product> productList = new ArrayList<>();
+        while (rs.next()) {
+            Product product = tableToClass(rs);
+            productList.add(product);
+        }
+        closeResource(rs);
+        return productList;
+    }
+
+    @Override
+    public Product tableToClass(ResultSet rs) throws Exception {
+        Product product = new Product();
+        product.setId(rs.getInt(1));
+        product.setName(rs.getString(2));
+        product.setDescription(rs.getString(3));
+        product.setPrice(rs.getDouble(4));
+        product.setStock(rs.getInt(5));
+        product.setCategoryLevel1Id(rs.getInt(6));
+        product.setCategoryLevel2Id(rs.getInt(7));
+        product.setCategoryLevel3Id(rs.getInt(8));
+        product.setFileName(rs.getString(9));
+        product.setIsDelete(rs.getInt(10));
+
+        return product;
+    }
+}

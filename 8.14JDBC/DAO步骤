@@ -1,0 +1,12 @@
+一、创建工程，导入jar包
+二、创建实体类，放入pojo包
+三、在src目录下，添加db.properties
+    用于配置数据库连接信息（url，driver、username，password）
+四、创建工具类（dao.util）：DataSourceUtil管理Connection
+五、建立通用DAO接口，IBaseDao，crud方法
+六、建立通用接口的实现类（dao.impl）  BaseDaoImpl
+七、建立自定义接口 XXXDao extends IBaseDao
+八、创建自定义接口的实现类(dao.impl)
+XXXDaoImpl extends BaseDaoImpl implements XXXDao
+
+每张表 --- pojo类  --- dao接口
