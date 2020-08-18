@@ -45,6 +45,6 @@ public class TestUserDao {
         Connection connection = DataSourceUtil.openConnection();
         UserDao userDao = new UserDaoImpl(connection);
         userDao.deleteUser(25);
-
+        DataSourceUtil.closeConnection(connection);
     }
 }
