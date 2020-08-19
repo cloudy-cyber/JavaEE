@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
@@ -28,7 +28,21 @@
     <script type="text/javascript" src="js/tban.js"></script>
     
 	<script type="text/javascript" src="js/lrscroll_1.js"></script>
-    
+
+    <script type="text/javascript">
+        $(function(){
+            $("#loginBtn").click(function () {
+                var username = $("#username").val();
+                console.log(username);
+                if(username.trim()==""){
+                    $("#userMsg").html("用户名不能为空");
+                }
+                else {
+                    $("#loginForm").submit();
+                }
+            });
+        });
+    </script>
     
 <title>购物街</title>
 </head>
@@ -53,7 +67,7 @@
 	<div class="login">
     	<div class="log_img"><img src="images/l_img.png" width="611" height="425" /></div>
 		<div class="log_c">
-        	<form action="login.do" method="post">
+        	<form id="loginForm" action="login.do" method="post">
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
@@ -62,13 +76,22 @@
                     <span class="fr">还没有商城账号，<a href="Regist.html" style="color:#ff4e00;">立即注册</a></span>
                 </td>
               </tr>
+                <tr>
+                    <td colspan="2"><%
+                        Object msg = request.getAttribute("errorMsg");
+                        out.println(msg==null?"":msg);
+                    %>
+                    </td>
+                </tr>
               <tr height="70">
                 <td>用户名</td>
-                <td><input type="text" value="" class="l_user" name="loginname"/></td>
+                <td><input name="username" id="username" type="text" value="" class="l_user" />
+                    <span id="userMsg"></span>
+                </td>
               </tr>
               <tr height="70">
                 <td>密&nbsp; &nbsp; 码</td>
-                <td><input type="password" value="" class="l_pwd" name="password"/></td>
+                <td><input name="password" type="password" value="" class="l_pwd" /></td>
               </tr>
               <tr>
               	<td>&nbsp;</td>
@@ -81,7 +104,7 @@
               </tr>
               <tr height="60">
               	<td>&nbsp;</td>
-                <td><input type="submit" value="登录" class="log_btn" /></td>
+                <td><input id="loginBtn" type="button" value="登录" class="log_btn" /></td>
               </tr>
             </table>
             </form>
