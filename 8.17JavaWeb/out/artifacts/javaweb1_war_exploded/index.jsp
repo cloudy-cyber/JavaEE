@@ -116,8 +116,8 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
         	<span class="fl">你好<%
-                User user = (User) request.getAttribute("user");
-                out.println(user == null ? "<a href=\"Login.html\">请登录</a>" : "<a href=\"Member_Address.html\">" + user.getLoginName() + "</a>"); %>
+                User user = (User) session.getAttribute("user");
+                out.println(user == null ? "<a href=\"Login.jsp\">请登录</a>" : "<a href=\"Member_Address.jsp\">" + user.getLoginName() + "</a>"); %>
             &nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a
                         href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">

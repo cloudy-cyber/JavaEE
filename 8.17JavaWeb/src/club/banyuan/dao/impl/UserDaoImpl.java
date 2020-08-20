@@ -5,10 +5,11 @@ import club.banyuan.pojo.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
-    public UserDaoImpl(Connection conn){
+    public UserDaoImpl(Connection conn) {
         super(conn);
     }
 
@@ -16,7 +17,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
     public User getUserByUserNameAndPwd(String username, String password) throws Exception {
         User user = null;
         String sql = "select * from user where loginName=? and password=?";
-        ResultSet rs = executeQuery(sql,new Object[]{username,password});
+        ResultSet rs = executeQuery(sql, new Object[]{username, password});
         if (rs.next()) {
             user = tableToClass(rs);
         }
@@ -28,20 +29,33 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
     public User addUser(User user) {
         String sql = "insert into user values(?,?,?,?,?,?,?,?,?)";
         Object[] param = new Object[9];
-        param[0]=null;
-        param[1]=user.getLoginName();
-        param[2]=user.getUserName();
-        param[3]=user.getPassword();
-        param[4]=user.getSex();
-        param[5]=user.getIdentityCode();
-        param[6]=user.getEmail();
-        param[7]=user.getMobile();
-        param[8]=user.getType();
-        int id = executeInsert(sql,param);
+        param[0] = null;
+        param[1] = user.getLoginName();
+        param[2] = user.getUserName();
+        param[3] = user.getPassword();
+        param[4] = user.getSex();
+        param[5] = user.getIdentityCode();
+        param[6] = user.getEmail();
+        param[7] = user.getMobile();
+        param[8] = user.getType();
+        int id = executeInsert(sql, param);
         user.setId(id);
 
         closeResource();
         return user;
+    }
+
+    @Override
+    public String getAddressByUserId(int id) throws SQLException {
+        String sql = "SELECT address FROM user_address WHERE userId = ?";
+        Object[] param = new Object[]{id};
+        ResultSet rs = executeQuery(sql, param);
+        String s = "";
+        if (rs.next()) {
+            s = rs.getString(1);
+        }
+        this.closeResource(rs);
+        return s;
     }
 
     @Override
