@@ -23,3 +23,26 @@
 6、在doGet方法中利用request.getParameter("表单元素name") 获取浏览器提交的参数的值
 
 7、利用response对象，得到io流对象，利用io流对象，将html代码返回给浏览器
+
+
+
+MVC开发流程
+
+1、根据业务需求，完善dao和service
+
+2、添加一个servlet
+
+3、前端页面，修改form中的action或者修改超链接，将跳转的url指向第二步的Servlet
+
+4、在Servlet中
+
+​		接收参数
+
+​		调用Service，得到结果
+
+​		分支判断，依据判断结果，把相应的信息放入到request的Attribute中
+
+​		请求转发到一个页面
+
+5、在结果页面中，取出request中的Attribute中的值，显示
+

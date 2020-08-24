@@ -1,5 +1,7 @@
-<%@ page import="club.banyuan.pojo.User" %>
+<%@ page import="club.banyuan.pojo.UserAddress" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -100,7 +102,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        	<span class="fl">你好，请<a href="login.jsp">登录</a>&nbsp; <a href="regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -197,7 +199,7 @@
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                 	<li><a href="Member_Order.html">我的订单</a></li>
-                    <li><a href="Member_Address.jsp" class="now">收货地址</a></li>
+                    <li><a href="Member_Address.html" class="now">收货地址</a></li>
                     <li><a href="#">缺货登记</a></li>
                     <li><a href="#">跟踪订单</a></li>
                 </ul>
@@ -234,38 +236,20 @@
             <p></p>
             <div class="mem_tit">收货地址</div>
 			<div class="address">
+
+                <c:forEach items="${requestScope.userAddressList}" var="userAddress">
             	<div class="a_close"><a href="#"><img src="images/a_close.png" /></a></div>
-            	<table border="0" class="add_t" align="center" style="width:98%; margin:10px auto;" cellspacing="0" cellpadding="0">
+                <table border="0" class="add_t" align="center" style="width:98%; margin:10px auto;" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td colspan="2" style="font-size:14px; color:#ff4e00;">杨杨公司</td>
+                    <td colspan="2" style="font-size:14px; color:#ff4e00;">${userAddress.remark}</td>
                   </tr>
                   <tr>
                     <td align="right" width="80">收货人姓名：</td>
-                    <td>杨杨</td>
-                  </tr>
-                  <tr>
-                    <td align="right">配送区域：</td>
-                    <td><%out.println((String) session.getAttribute("address"));%></td>
+                    <td>${userAddress.userId}</td>
                   </tr>
                   <tr>
                     <td align="right">详细地址：</td>
-                    <td>科华北路66号世外桃源写字楼3楼</td>
-                  </tr>
-                  <tr>
-                    <td align="right">手机：</td>
-                    <td>12345678998</td>
-                  </tr>
-                  <tr>
-                    <td align="right">电话：</td>
-                    <td>028-12345678</td>
-                  </tr>
-                  <tr>
-                    <td align="right">电子邮箱：</td>
-                    <td>123456789@qq.com</td>
-                  </tr>
-                  <tr>
-                    <td align="right">标志建筑：</td>
-                    <td>世外桃源</td>
+                    <td>${userAddress.address}</td>
                   </tr>
                 </table>
 				
@@ -274,6 +258,8 @@
                 </p>
 
             </div>
+
+            </c:forEach>
 
             <div class="mem_tit">
             	<a href="#"><img src="images/add_ad.gif" /></a>
