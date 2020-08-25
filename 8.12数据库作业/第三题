@@ -50,7 +50,9 @@ INSERT INTO score
 VALUES (NULL, 906, '英语', 85);
 
 -- 查询李四的考试科目（c_name）和考试成绩（grade）
-SELECT c_name,grade FROM student INNER JOIN score ON student.id=score.stu_id WHERE name ='李四';
+SELECT score.c_name,score.grade FROM student INNER JOIN score ON student.id=score.stu_id WHERE name ='李四';
+
+select c_name,grade from score where stu_id = (select id from student where name = '李四');
 
 -- 查询所有学生的信息和考试信息
 SELECT * FROM student INNER JOIN score ON student.id=score.stu_id;
@@ -58,11 +60,17 @@ SELECT * FROM student INNER JOIN score ON student.id=score.stu_id;
 -- 计算每个学生的总成绩
 SELECT name,sum(grade) FROM student INNER JOIN score ON student.id=score.stu_id GROUP BY `name`;
 
+select sum(grade),stu_id from score group by stu_id;
+
 -- 计算每个考试科目的平均成绩
 SELECT c_name,avg(grade) FROM student INNER JOIN score ON student.id=score.stu_id GROUP BY c_name;
 
 -- 查询计算机成绩低于95的学生信息
 SELECT * FROM student INNER JOIN score ON student.id=score.stu_id WHERE grade<95;
+
+select student.*,computerGrade.grade from student inner join
+(select stu_id,grade from score where c_name = '计算机' and grade<95) computerGrade
+on student.id = computerGrade.stu_id;
 
 -- 查询同时参加计算机和英语考试的学生的信息
 select * from student where id in (
