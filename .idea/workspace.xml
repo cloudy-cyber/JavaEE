@@ -25,18 +25,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3189cff2-7b9d-48a7-a080-b7b1f3f0de63" name="Default Changelist" comment="updata 08-14">
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/impl/ProductDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/pojo/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/servlet/SearchServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/web/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/web/result.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/笔记" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/servlet/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/servlet/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/servlet/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.10数据库作业/mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.11数据库作业/第一题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.11数据库作业/第三题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.11数据库作业/第二题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.11数据库作业/第四题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.12数据库作业/第一题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.12数据库作业/第三题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.12数据库作业/第二题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.12数据库作业/第四题" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/servlet/CheckLoginNameServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/WEB-INF/classes/club/banyuan/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/artifacts/javaweb1_war_exploded/regist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/out/production/javaweb1/club/banyuan/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/src/club/banyuan/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.17JavaWeb/web/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/8.17JavaWeb/web/regist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +272,8 @@
       <workItem from="1597298003556" duration="1058000" />
       <workItem from="1597654318632" duration="9053000" />
       <workItem from="1597711327038" duration="2356000" />
+      <workItem from="1598318159740" duration="193000" />
+      <workItem from="1598318709733" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="updata 08-13">
       <created>1597316012127</created>

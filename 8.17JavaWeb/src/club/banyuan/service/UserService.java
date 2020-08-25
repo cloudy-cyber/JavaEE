@@ -10,4 +10,6 @@ public interface UserService {
     public User login(String username, String password) throws Exception;
 
     public String getAddress(int id) throws SQLException;
+
+    public User checkLoginName(String loginName) throws Exception;
 }

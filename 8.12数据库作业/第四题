@@ -1,0 +1,91 @@
+DROP TABLE IF EXISTS `dept`;
+CREATE TABLE `dept`
+(
+    `deptno` int(2) NOT NULL,
+    `dname`  varchar(14) DEFAULT NULL,
+    `loc`    varchar(13) DEFAULT NULL,
+    PRIMARY KEY (`deptno`)
+) ;
+INSERT INTO `dept`
+VALUES (10, 'ACCOUNTING', 'NEW YORK'),
+       (20, 'RESEARCH', 'DALLAS'),
+       (30, 'SALES', 'CHICAGO'),
+       (40, 'OPERATIONS', 'BOSTON'),
+       (50, 'HR', 'SY'),
+       (60, NULL, 'MARKET');
+
+DROP TABLE IF EXISTS `emp`;
+CREATE TABLE `emp`
+(
+    `empno`    int(4) NOT NULL,
+    `ename`    varchar(20)  DEFAULT NULL,
+    `job`      varchar(9)   DEFAULT NULL,
+    `mgr`      int(4)       DEFAULT NULL,
+    `hiredate` date         DEFAULT NULL,
+    `sal`      double(7, 2) DEFAULT NULL,
+    `comm`     double(7, 2) DEFAULT NULL,
+    `deptno`   int(2)       DEFAULT NULL,
+    PRIMARY KEY (`empno`)
+);
+
+INSERT INTO `emp`
+VALUES (7369, 'SMITH', 'CLERK', 7902, '1980-12-17', 800.00, NULL, 20),
+       (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600.00, 300.00, 30),
+       (7521, 'WARD', 'SALESMAN', 7698, '1981-02-22', 1250.00, 500.00, 30),
+       (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975.00, NULL, 20),
+       (7654, 'MARTIN', 'SALESMAN', 7698, '1981-09-28', 1250.00, 1400.00, 30),
+       (7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850.00, NULL, 30),
+       (7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450.00, NULL, 10),
+       (7788, 'SCOTT', 'ANALYST', 7566, '1987-04-19', 3000.00, NULL, 20),
+       (7839, 'KING', 'PRESIDENT', NULL, '1981-11-17', 5000.00, NULL, 10),
+       (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500.00, 0.00, 30),
+       (7876, 'ADAMS', 'CLERK', 7788, '1987-05-23', 1100.00, NULL, 20),
+       (7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950.00, NULL, 30),
+       (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000.00, NULL, 20),
+       (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300.00, NULL, 10);
+
+DROP TABLE IF EXISTS `salgrade`;
+CREATE TABLE `salgrade`
+(
+    `grade` int(11) DEFAULT NULL,
+    `losal` int(11) DEFAULT NULL,
+    `hisal` int(11) DEFAULT NULL
+);
+INSERT INTO `salgrade`
+VALUES (1, 700, 1200),
+       (2, 1201, 1400),
+       (3, 1401, 2000),
+       (4, 2001, 3000),
+       (5, 3001, 9999);
+
+-- 取得每个部门最高薪水的人员名称
+SELECT a.ename,a.sal,a.deptno
+FROM emp a INNER JOIN (SELECT max(sal) maxsal,deptno FROM emp GROUP BY deptno) b on a.deptno = b.deptno
+WHERE a.sal=b.maxsal;
+
+-- 哪些人的薪水在部门的平均薪水之上
+select a.ename, a.sal, a.deptno
+from emp a, (select avg(sal) avgsal, deptno from emp group by deptno) b
+where a.sal > b.avgsal and a.deptno = b.deptno;
+
+-- 取得部门中(所有人)平均薪水的等级
+
+-- 取得部门中(所有人)薪水的平均等级
+
+-- 取得平均薪水最高的部门的编号
+SELECT max(b.avgsal),b.deptno
+FROM emp a INNER JOIN(SELECT AVG(sal) avgsal,deptno FROM emp GROUP BY deptno) b on a.deptno=b.deptno;
+
+-- 求平均薪水的等级最高的部门的部门名称
+-- 取得比普通员工的最高薪水还要高的领导人姓名
+-- 取得每个薪水等级有多少员工
+-- 列出受雇日期早于其直接上级领导的所有员工编号，姓名、部门名称
+-- 列出部门名称和这些员工信息同时列出那些没有员工的部门
+-- 列出至少有五个员工的部门详细信息
+-- 列出所有“CLERK”(办事员)的姓名及其部门名称，部门人数
+-- 列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数
+-- 列出部门在“SALES”<销售部>工作的姓名
+-- 列出薪金高于公司平均薪金的所有员工、所在的部门、上级领导、雇员的工资等级
+-- 列出所有与“SCOTT”从事相同工作的所有员工及部门名称
+-- 列出每个部门工作的员工数量，平均工资、平均服务期限
+-- 列出各个部门MANAGER的最低薪金

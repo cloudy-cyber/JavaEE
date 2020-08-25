@@ -1,0 +1,45 @@
+create TABLE admin(
+id int not null COMMENT'管理员id',
+adminName VARCHAR(20) not null COMMENT'管理员姓名',
+pwd VARCHAR(20) not null comment'管理员密码',
+PRIMARY KEY(`id`)
+);
+
+CREATE TABLE priceList(
+id int not null COMMENT'出价表编号',
+time VARCHAR(40) not null COMMENT'出价时间',
+person VARCHAR(20) not null COMMENT'出价人',
+money float not null COMMENT'金额',
+goods VARCHAR not null COMMENT'商品',
+PRIMARY KEY(`id`)
+);
+
+CREATE TABLE result(
+id int not null COMMENT'竞拍结果编号',
+time VARCHAR(40) not null comment'竞拍结束时间',
+person VARCHAR(20) not null COMMENT'竞拍获胜者',
+money float not null COMMENT'成交价格',
+goods VARCHAR(30) not null COMMENT'成交商品',
+PRIMARY KEY(`id`)
+);
+
+CREATE TABLE lot (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '拍卖品id',
+  `lotName` varchar(20) DEFAULT NULL COMMENT '拍卖品名称',
+  `lotDescribe` varchar(20) DEFAULT NULL COMMENT '拍卖品描述',
+  `beginTime` varchar(20) DEFAULT NULL COMMENT '拍卖开始时间',
+  `endTime` varchar(20) DEFAULT NULL COMMENT '拍卖结束时间',
+  `price` varchar(20) DEFAULT NULL COMMENT '起拍价',
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE user (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `username` varchar(255) NOT NULL COMMENT '用户名',
+  `pwd` varchar(255) NOT NULL COMMENT '用户密码',
+  `idcard` varchar(255) NOT NULL COMMENT '身份证号',
+  `telephone` varchar(255) NOT NULL COMMENT '电话号码',
+  `address` varchar(255) DEFAULT NULL COMMENT '住址',
+  `postcode` varchar(255) DEFAULT NULL COMMENT '邮政编码',
+  PRIMARY KEY (`id`)
+);

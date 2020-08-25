@@ -1,0 +1,142 @@
+CREATE TABLE fruits
+(
+    f_id    char(10)      NOT NULL,
+    s_id    INT           NOT NULL,
+    f_name  char(255)     NOT NULL,
+    f_price decimal(8, 2) NOT NULL,
+    PRIMARY KEY (f_id)
+);
+
+INSERT INTO fruits (f_id, s_id, f_name, f_price)
+VALUES ('a1', 101, 'apple', 5.2),
+       ('b1', 101, 'blackberry', 10.2),
+       ('bs1', 102, 'orange', 11.2),
+       ('bs2', 105, 'melon', 8.2),
+       ('t1', 102, 'banana', 10.3),
+       ('t2', 102, 'grape', 5.3),
+       ('o2', 103, 'coconut', 9.2),
+       ('c0', 101, 'cherry', 3.2),
+       ('a2', 103, 'apricot', 2.2),
+       ('l2', 104, 'lemon', 6.4),
+       ('b2', 104, 'berry', 7.6),
+       ('m1', 106, 'mango', 15.6),
+       ('m2', 105, 'xbabay', 2.6),
+       ('t4', 107, 'xbababa', 3.6),
+       ('m3', 105, 'xxtt', 11.6),
+       ('b5', 107, 'xxxx', 3.6);
+
+-- 顾客
+CREATE TABLE customers
+(
+    c_id      int       NOT NULL AUTO_INCREMENT,
+    c_name    char(50)  NOT NULL,
+    c_address char(50)  NULL,
+    c_city    char(50)  NULL,
+    c_zip     char(10)  NULL,
+    c_contact char(50)  NULL,
+    c_email   char(255) NULL,
+    PRIMARY KEY (c_id)
+);
+
+INSERT INTO customers(c_id, c_name, c_address, c_city,
+                      c_zip, c_contact, c_email)
+VALUES (10001, 'RedHook', '200 Street ', 'Tianjin',
+        '300000', 'LiMing', 'LMing@163.com'),
+       (10002, 'Stars', '333 Fromage Lane',
+        'Dalian', '116000', 'Zhangbo', 'Jerry@hotmail.com'),
+       (10003, 'Netbhood', '1 Sunny Place', 'Qingdao', '266000',
+        'LuoCong', NULL),
+       (10004, 'JOTO', '829 Riverside Drive', 'Haikou',
+        '570000', 'YangShan', 'sam@hotmail.com');
+SELECT COUNT(*) AS cust_num
+FROM customers;
+
+-- 订单明细
+CREATE TABLE orderitems
+(
+    o_num      int           NOT NULL,
+    o_item     int           NOT NULL,
+    f_id       char(10)      NOT NULL,
+    quantity   int           NOT NULL,
+    item_price decimal(8, 2) NOT NULL,
+    PRIMARY KEY (o_num, o_item)
+);
+
+INSERT INTO orderitems(o_num, o_item, f_id, quantity, item_price)
+VALUES (30001, 1, 'a1', 10, 5.2),
+       (30001, 2, 'b2', 3, 7.6),
+       (30001, 3, 'bs1', 5, 11.2),
+       (30001, 4, 'bs2', 15, 9.2),
+       (30002, 1, 'b3', 2, 20.0),
+       (30003, 1, 'c0', 100, 10),
+       (30004, 1, 'o2', 50, 2.50),
+       (30005, 1, 'c0', 5, 10),
+       (30005, 2, 'b1', 10, 8.99),
+       (30005, 3, 'a2', 10, 2.2),
+       (30005, 4, 'm1', 5, 14.99);
+
+-- 供应商
+CREATE TABLE suppliers
+(
+    s_id   int      NOT NULL AUTO_INCREMENT,
+    s_name char(50) NOT NULL,
+    s_city char(50) NULL,
+    s_zip  char(10) NULL,
+    s_call CHAR(50) NOT NULL,
+    PRIMARY KEY (s_id)
+);
+
+INSERT INTO suppliers(s_id, s_name, s_city, s_zip, s_call)
+VALUES (101, 'FastFruit Inc.', 'Tianjin', '300000', '48075'),
+       (102, 'LT Supplies', 'Chongqing', '400000', '44333'),
+       (103, 'ACME', 'Shanghai', '200000', '90046'),
+       (104, 'FNK Inc.', 'Zhongshan', '528437', '11111'),
+       (105, 'Good Set', 'Taiyuang', '030000', '22222'),
+       (106, 'Just Eat Ours', 'Beijing', '010', '45678'),
+       (107, 'DK Inc.', 'Zhengzhou', '450000', '33332');
+
+-- 订单
+CREATE TABLE orders
+(
+    o_num  int      NOT NULL AUTO_INCREMENT,
+    o_date datetime NOT NULL,
+    c_id   int      NOT NULL,
+    PRIMARY KEY (o_num)
+);
+INSERT INTO orders(o_num, o_date, c_id)
+VALUES (30001, '2008-09-01', 10001),
+       (30002, '2008-09-12', 10003),
+       (30003, '2008-09-30', 10004),
+       (30004, '2008-10-03', 10005),
+       (30005, '2008-10-08', 10001);
+
+-- 查询供应f_id= ‘a1’的水果供应商提供的其他水果种类，内连接
+SELECT f_id FROM fruits WHERE s_id=(SELECT s_id FROM fruits WHERE f_id='a1');
+SELECT fruits.f_id from fruits INNER JOIN suppliers ON fruits.s_id=suppliers.s_id WHERE f_id='a1';
+
+-- 在customers表和orders表中，查询所有客户，包括没有订单的客户，左连接
+SELECT * from customers LEFT JOIN orders ON customers.c_id=orders.c_id;
+
+-- 在customers表和orders表中，查询所有订单，包括没有客户的订单，右连接
+SELECT * from customers RIGHT JOIN orders ON customers.c_id=orders.c_id;
+
+-- 在customers表和orders表中，使用INNER JOIN语法查询customers表中ID为10001的客户的订单信息
+SELECT * FROM orders INNER JOIN customers ON orders.c_id=customers.c_id WHERE customers.c_id=10001;
+
+-- 查询fruits表所有信息附加一列suppliers的供应商名称，使用INNER JOIN语法进行内连接查询，并对查询结果排序
+SELECT fruits.f_id,fruits.s_id,fruits.f_name,fruits.f_price,suppliers.s_name FROM fruits INNER JOIN suppliers ON fruits.s_id=suppliers.s_id;
+
+-- 查询所有价格小于9的水果的信息，查询s_id等于101和103所有的水果的信息，使用UNION连接查询结果
+SELECT * FROM fruits WHERE f_price < 9 UNION SELECT * FROM fruits WHERE s_id in (101,103);
+
+-- 查询所有价格小于9的水果的信息，查询s_id等于101和103的所有水果的信息，使用UNION ALL连接查询结果
+SELECT * FROM fruits WHERE f_price < 9 UNION ALL SELECT * FROM fruits WHERE s_id in (101,103);
+
+-- 为orders表取别名o，查询30001订单的下单日期
+SELECT o_date FROM orders as o WHERE o_num=30001;
+
+-- 查询fruits表，为f_name取别名fruit_name，f_price取别名fruit_price，为fruits表取别名f1，查询表中f_price < 8的水果的名称
+SELECT f_name as fruit_name FROM fruits as f1 WHERE f_price < 8;
+
+-- 查询suppliers表中字段s_name和s_city，使用CONCAT函数连接这两个字段值，并取列别名为suppliers_title。
+SELECT CONCAT(s_name,s_city) as suppliers_title FROM suppliers;

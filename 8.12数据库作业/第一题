@@ -1,0 +1,40 @@
+CREATE TABLE tb_dept
+(
+    id       INT(11) PRIMARY KEY,
+    name     VARCHAR(22) NOT NULL,
+    location VARCHAR(50)
+);
+
+CREATE TABLE tb_emp
+(
+    id     INT(11) PRIMARY KEY,
+    name   VARCHAR(25),
+    deptId INT(11),
+    salary FLOAT
+);
+
+-- 修改tb_emp表，创建外键约束，使用tb_dept中的id作为外键，关联deptId。
+ALTER TABLE tb_emp add CONSTRAINT dept_id_fk FOREIGN KEY(deptId) REFERENCES tb_dept(id);
+
+-- 使用SHOW CREATE TABLE查看表tb_emp的结构
+SHOW CREATE TABLE tb_emp;
+
+-- 建立名为tb_emp1的表，结构和tb_emp一样，直接在建表的时候声明外键关联tb_dept的id
+CREATE TABLE tb_emp1
+(
+    id INT(11) PRIMARY KEY,
+    name VARCHAR(25),
+    deptId INT(11),
+    salary FLOAT,
+		CONSTRAINT dept_id_fk1 FOREIGN KEY(deptId) REFERENCES tb_dept(id)
+);
+
+-- 建立名为tb_dept1的表，结构和tb_dept表结构一致，将tb_emp外键删除，关联到tb_dept1上
+CREATE TABLE tb_dept1
+(
+    id       INT(11) PRIMARY KEY,
+    name     VARCHAR(22) NOT NULL,
+    location VARCHAR(50)
+);
+ALTER TABLE tb_emp DROP FOREIGN KEY dept_id_fk;
+ALTER TABLE tb_emp ADD CONSTRAINT dept_id_fk FOREIGN KEY(deptId) REFERENCES tb_dept1(id);

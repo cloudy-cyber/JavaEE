@@ -1,0 +1,55 @@
+CREATE TABLE customers
+(
+    c_id      int       NOT NULL AUTO_INCREMENT,
+    c_name    char(50)  NOT NULL,
+    c_address char(50)  NULL,
+    c_city    char(50)  NULL,
+    c_zip     char(10)  NULL,
+    c_contact char(50)  NULL,
+    c_email   char(255) NULL,
+    PRIMARY KEY (c_id)
+);
+
+INSERT INTO customers(c_id, c_name, c_address, c_city,
+                      c_zip, c_contact, c_email)
+VALUES (10001, 'RedHook', '200 Street ', 'Tianjin',
+        '300000', 'LiMing', 'LMing@163.com'),
+       (10002, 'Stars', '333 Fromage Lane',
+        'Dalian', '116000', 'Zhangbo', 'Jerry@hotmail.com'),
+       (10003, 'Netbhood', '1 Sunny Place', 'Qingdao', '266000',
+        'LuoCong', NULL),
+       (10004, 'JOTO', '829 Riverside Drive', 'Haikou',
+        '570000', 'YangShan', 'sam@hotmail.com');
+
+-- 查询customers表中c_email为空的记录的c_id、c_name和c_email字段值
+SELECT c_id,c_name,c_email FROM customers WHERE c_email is NULL;
+-- 查询customers表中c_email不为空的记录的c_id、c_name和c_email字段值
+SELECT c_id,c_name,c_email FROM customers WHERE c_email is NOT NULL;
+-- 在fruits表中查询s_id = 101，并且f_price大于等于5的水果价格和名称
+SELECT f_name,f_price FROM fruits WHERE s_id = 101 and f_price >= 5;
+-- 在fruits表中查询s_id = 101或者102，且f_price大于5，并且f_name=‘apple’的水果价格和名称
+SELECT f_name,f_price FROM fruits WHERE s_id in(101,102) and f_price >= 5 and f_name = 'apple';
+-- 查询s_id=101或者s_id=102的水果供应商的f_price和f_name
+SELECT f_price,f_name FROM fruits WHERE s_id in(101,102);
+-- 查询s_id=101或者s_id=102的水果供应商的f_price和f_name
+SELECT f_price,f_name FROM fruits WHERE s_id in(101,102);
+-- 查询fruits表中s_id字段的值，返回s_id字段值且不得重复
+SELECT DISTINCT s_id FROM fruits;
+-- 查询fruits表的f_name字段值，并对其进行排序
+SELECT f_name FROM fruits ORDER BY f_name;
+-- 查询fruits表中的f_name和f_price字段，先按f_name排序，再按f_price排序
+SELECT f_name,f_price FROM fruits ORDER BY f_name,f_price;
+-- 查询fruits表中的f_name和f_price字段，对结果按f_price降序方式排序
+SELECT f_name,f_price FROM fruits ORDER BY f_price DESC;
+-- 查询fruits表，先按f_price降序排序，再按f_name字段升序排序
+SELECT f_name,f_price FROM fruits ORDER BY f_price DESC,f_name ASC;
+-- 根据s_id对fruits表中的数据进行分组
+SELECT s_id FROM fruits GROUP BY s_id;
+-- 根据s_id对fruits表中的数据进行分组，将每个供应商的水果名称显示出来
+SELECT s_id,f_name,COUNT(*) from fruits GROUP BY s_id;
+-- 根据s_id对fruits表中的数据进行分组，并显示水果种类大于1的分组信息
+SELECT s_id FROM fruits GROUP BY s_id HAVING COUNT(f_name)>1;
+-- 根据s_id对fruits表中的数据进行分组，并显示记录数量
+SELECT s_id,COUNT(*) FROM fruits GROUP BY s_id;
+-- 根据s_id和f_name字段对fruits表中的数据进行分组， SQL语句如下，
+SELECT s_id,F_NAME FROM fruits GROUP BY s_id,f_name;

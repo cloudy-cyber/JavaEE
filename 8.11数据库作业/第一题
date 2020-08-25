@@ -1,0 +1,60 @@
+DROP DATABASE day2_homework;
+CREATE DATABASE day2_homework;
+USE day2_homework;
+
+CREATE TABLE fruits
+(
+    f_id    char(10)      NOT NULL,
+    s_id    INT           NOT NULL,
+    f_name  char(255)     NOT NULL,
+    f_price decimal(8, 2) NOT NULL,
+    PRIMARY KEY (f_id)
+);
+INSERT INTO fruits (f_id, s_id, f_name, f_price)
+VALUES ('a1', 101, 'apple', 5.2),
+       ('b1', 101, 'blackberry', 10.2),
+       ('bs1', 102, 'orange', 11.2),
+       ('bs2', 105, 'melon', 8.2),
+       ('t1', 102, 'banana', 10.3),
+       ('t2', 102, 'grape', 5.3),
+       ('o2', 103, 'coconut', 9.2),
+       ('c0', 101, 'cherry', 3.2),
+       ('a2', 103, 'apricot', 2.2),
+       ('l2', 104, 'lemon', 6.4),
+       ('b2', 104, 'berry', 7.6),
+       ('m1', 106, 'mango', 15.6),
+       ('m2', 105, 'xbabay', 2.6),
+       ('t4', 107, 'xbababa', 3.6),
+       ('m3', 105, 'xxtt', 11.6),
+       ('b5', 107, 'xxxx', 3.6);
+
+       -- 从fruits表中检索所有字段的数据
+       SELECT * FROM fruits;
+       -- 查询fruits表中f_name列所有水果名称
+       SELECT f_name FROM fruits;
+       -- 从fruits表中获取f_name和f_price两列
+       SELECT f_name,f_price FROM fruits;
+       -- 该语句使用SELECT声明从fruits表中获取名称为f_name和f_price两个字段下的所有水果名称和价格
+       SELECT f_name,f_price FROM fruits;
+       -- 查询价格为10.2元的水果的名称
+       SELECT f_name FROM fruits WHERE f_price=10.2;
+       -- 查找名称为“apple”的水果的价格
+       SELECT f_price FROM fruits WHERE f_name='apple';
+       -- 查询价格小于10的水果的名称
+       SELECT f_name FROM fruits WHERE f_price<10;
+       -- 查询s_id为101和102的记录
+       SELECT * FROM fruits WHERE s_id=101 or s_id=102;
+       -- 查询所有s_id不等于101也不等于102的记录
+       SELECT * FROM fruits WHERE s_id not IN(101,102);
+       -- 查询价格在2.00元到10.20元之间的水果名称和价格
+       SELECT f_name,f_price FROM fruits WHERE f_price BETWEEN 2.00 and 10.20;
+       -- 查询价格在2.00元到10.20元之外的水果名称和价格
+       SELECT f_name,f_price FROM fruits WHERE f_price NOT BETWEEN 2.00 and 10.20;
+       -- 查找所有以’b’字母开头的水果
+       SELECT * FROM fruits WHERE f_name like 'b%';
+       -- 在fruits表中，查询f_name中包含字母’g’的记录
+       SELECT * FROM fruits WHERE f_name like '%g%';
+       -- 查询以’b’开头，并以’y’结尾的水果的名称
+       SELECT * FROM fruits WHERE f_name like 'b%y';
+       -- 在fruits表中，查询以字母’y’结尾，且’y’前面只有4个字母的记录
+       SELECT * FROM fruits WHERE f_name like '____y';
