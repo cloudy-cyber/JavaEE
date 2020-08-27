@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Mapper文件 <-&ndash;&gt; dao接口-->
+<!--mapper中的namespace属性：填写dao接口-->
+<mapper namespace="club.banyuan.dao.UserDao">
+    <!--    select : 针对select的sql语句-->
+    <!--        id  -&ndash;&gt; dao接口中方法名-->
+    <!--        resultType  -&ndash;&gt; 查询结果每一行的封装后的Java类型-->
+    <select id="getAll" resultType="club.banyuan.pojo.User">
+        select * from user;
+    </select>
+
+    <!--    insert : 针对sql中的insert语句-->
+    <!--            返回值都是int类型，不需要再配置resultType，对数据表操作了多少行-->
+    <!--    parameterType：-->
+    <!--            如果参数只有一个，是实体类类型，保持和方法的参数类型一致-->
+    <!--    sql语句中的参数值是从ParameterType中的getXXX方法中得到的-->
+    <!--            sql中的参数名要和类型的属性一致，#{类型属性名，注意大小写}-->
+
+    <insert id="addUser" parameterType="User">
+        insert into user values (null ,#{loginName},#{userName},#{password},#{sex},#{identityCode},#{email},#{mobile},#{type})
+
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update user set loginName = #{loginName},
+                         userName = #{userName},
+                         password = #{password},
+                         sex = #{sex},
+                         identityCode = #{identityCode},
+                         email = #{email},
+                         mobile = #{mobile},
+                         type = #{type} where id = #{id};
+    </update>
+
+    <!--        parameterType：-->
+    <!--                如果参数只有一个，是基本数据类型+String，保持和方法的参数类型一致-->
+    <!--        sql语句中的参数值是从方法的参数中获取-->
+    <!--                sql中的参数名可以随便，但是一般写方法的参数名  #{方法的参数名}-->
+    <delete id="delUser" parameterType="int">
+         delete from user where id = #{id};
+    </delete>
+</mapper>

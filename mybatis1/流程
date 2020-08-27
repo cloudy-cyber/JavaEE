@@ -1,0 +1,11 @@
+1、创建maven工程，groupId，artifactId，version，packaging（jar）
+2、在pom.xml添加MyBatis框架坐标、JDBC的jar坐标
+3、编写MyBatis的核心配置文件(SqlMapConfig.xml)，在resources目录下
+    连接数据库信息（4个参数dirver、url、username、password）
+    Mapper文件的路径
+4、编写实体类、dao接口
+5、编写Mapper文件，文件的路径配置到SqlMapConfig.xml中，放在resources目录下
+    路径和dao接口路径一致，文件名和接口名一致
+    UserDao  --> UserMapper
+    配置sql语句
+6、测试
