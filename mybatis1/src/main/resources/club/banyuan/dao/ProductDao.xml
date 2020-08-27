@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="club.banyuan.dao.ProductDao">
     <select id="getAll" resultType="club.banyuan.pojo.Product">
         select * from product;
     </select>
+
+    <!--    模糊查询：-->
+    <select id="getProductByNameOrDesc" resultType="Product" parameterType="String">
+        select * from product where name like #{key} or description like #{key}
+    </select>
+
+    <!--        parameterType: 多个参数，不是来源于一个类-->
+    <!--                    方法一：这些参数放入到Map集合-->
+    <!--                            sql中的参数名是Map集合中的key , #{map中的key}-->
+    <!--                    方法二：为这些参数单独构造一个类-->
+    <!--                            sql中的参数名是类的属性名 , #{属性名}-->
+    <select id="getProductByPrice" parameterType="map" resultType="Product">
+        select * from product where price between #{lowPrice} and #{highPrice}
+    </select>
+
+    <select id="getProductByParam" parameterType="ProductVO" resultType="Product">
+        select * from product where (name like #{key} or description like #{key})
+           and (price between  #{lowPrice} and #{highPrice})
+            and stock > #{product.stock} limit #{beginIndex} , #{pageSize}
+    </select>
+
+    <select id="countProductRows" resultType="int">
+        select count(*) from product;
+    </select>
+
+    <select id="countLevel1ProductRows" resultType="PageVO">
+        select count(*) as num,categoryLevel1Id from product group by categoryLevel1Id;
+    </select>
+
 </mapper>

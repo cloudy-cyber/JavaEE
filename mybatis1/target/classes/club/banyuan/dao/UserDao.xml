@@ -4,6 +4,7 @@
 <!--Mapper文件 <-&ndash;&gt; dao接口-->
 <!--mapper中的namespace属性：填写dao接口-->
 <mapper namespace="club.banyuan.dao.UserDao">
+
     <!--    select : 针对select的sql语句-->
     <!--        id  -&ndash;&gt; dao接口中方法名-->
     <!--        resultType  -&ndash;&gt; 查询结果每一行的封装后的Java类型-->

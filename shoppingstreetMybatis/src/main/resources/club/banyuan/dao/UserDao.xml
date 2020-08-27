@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Mapper文件 <-&ndash;&gt; dao接口-->
+<!--mapper中的namespace属性：填写dao接口-->
+<mapper namespace="club.banyuan.dao.UserDao">
+    <select id="getUserByUserNameAndPwd" parameterType="User" resultType="User">
+        select * from user where loginName = #{loginName} and password = #{password};
+    </select>
+
+    <insert id="addUser" parameterType="User">
+         insert into user values (null ,#{loginName},#{userName},#{password},#{sex},#{identityCode},#{email},#{mobile},#{type});
+    </insert>
+
+    <delete id="delUser" parameterType="User">
+        delete from user where id = #{id};
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+           update user set loginName = #{loginName},
+                         userName = #{userName},
+                         password = #{password},
+                         sex = #{sex},
+                         identityCode = #{identityCode},
+                         email = #{email},
+                         mobile = #{mobile},
+                         type = #{type} where id = #{id};
+    </update>
+
+    <select id = "getAllUser" resultType="User">
+        select * from user;
+    </select>
+
+    <select id="checkLoginName" resultType="User" parameterType="String">
+        select * from user where loginName=#{String};
+    </select>
+
+</mapper>

@@ -26,8 +26,6 @@
 
     <mappers>
         <mapper resource="club/banyuan/dao/UserDao.xml"/>
-        <mapper resource="club/banyuan/dao/ProductDao.xml"/>
-        <mapper resource="club/banyuan/dao/ProductEntityDao.xml"/>
     </mappers>
 
 </configuration>

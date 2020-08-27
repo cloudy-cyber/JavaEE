@@ -4,6 +4,7 @@
 <configuration>
     <typeAliases>
         <package name="club.banyuan.pojo"/>
+        <package name="club.banyuan.vo"/>
     </typeAliases>
     <!--    environments ：可以包含多个数据库配置信息-->
     <!--                default：默认情况下，使用哪个数据库配置，内容是environment的id属性-->
@@ -26,6 +27,7 @@
     <mappers>
         <mapper resource="club/banyuan/dao/UserDao.xml"/>
         <mapper resource="club/banyuan/dao/ProductDao.xml"/>
+        <mapper resource="club/banyuan/dao/ProductEntityDao.xml"></mapper>
     </mappers>
 
 </configuration>

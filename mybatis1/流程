@@ -9,3 +9,23 @@
     UserDao  --> UserMapper
     配置sql语句
 6、测试
+
+parameterType：
+    1、方法的参数是多个，但已经封装在类中（都是来源于一个类）  parameterType=类名 sql中参数就是#{属性名}
+    2、方法的参数是一个（基本数据类型 + String） parameterType=方法的参数类型，sql中的参数${方法的参数名}
+    3、方法的参数是多个，但不是来源于一个类
+        3.1 将这些参数封装到一个map集合 parameterType=map sql中的参数 #{map的key}
+        3.2 定义一个VO类，将参数放入到对应的VO类的属性中 parameterType=VO类，sql中的参数#{VO类的属性}
+    4、方法的参数是多个，但已经封装到一个数组/List中，只出现在in查询
+
+resultType :
+    1、查询结果中的每一行都可以封装到某个类的对象中(多行/一行 多列)，resultType为类的类型
+    2、查询结果是一行一列和多行一列 ，resultType为列对应的java类型
+    3、查询结果中的每一行不能封装到某个类的对象中(多行/一行 多列)
+        定义一个vo类，将查询结果中的列写入到vo类中的属性
+    4、增删改sql的返回值都是int，所以不用写resultType
+
+查询结果封装的时候，列名和java中的属性名不一致
+    1、将列名取别名，让别名与类的属性名保持一致
+    2、定义ResultMap,让列名和类的属性名对应上，
+        注意：在select中，把resultType换成resultMap
