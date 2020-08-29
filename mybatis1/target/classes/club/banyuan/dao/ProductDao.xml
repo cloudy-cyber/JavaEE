@@ -35,4 +35,19 @@
         select count(*) as num,categoryLevel1Id from product group by categoryLevel1Id;
     </select>
 
+    <select id="getProductByParam2" parameterType="map" resultType="Product">
+        select * from Product
+        <where>
+            <if test="name!=null and name!=''">
+                and name like #{name}
+            </if>
+            <if test="lowPrice>0 and highPrice>lowPrice">
+                and price between #{lowPrice} and #{highPrice}
+            </if>
+            <if test="stock>0">
+                and stock > #{stock};
+            </if>
+        </where>
+    </select>
+
 </mapper>

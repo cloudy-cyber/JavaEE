@@ -17,7 +17,8 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/shoppingstreet?&amp;useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/shoppingstreet?&amp;useSSL=false&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
                 <property name="password" value="12345678"/>
             </dataSource>
@@ -26,6 +27,10 @@
 
     <mappers>
         <mapper resource="club/banyuan/dao/UserDao.xml"/>
+        <mapper resource="club/banyuan/dao/UserAddressDao.xml"/>
+        <mapper resource="club/banyuan/dao/ProductDao.xml"/>
+        <mapper resource="club/banyuan/dao/OrderDetailDao.xml"/>
+        <mapper resource="club/banyuan/dao/OrderDao.xml"/>
     </mappers>
 
 </configuration>

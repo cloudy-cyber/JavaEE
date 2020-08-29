@@ -78,7 +78,7 @@ public class TestProductDao {
     }
 
     @Test
-    public void getProductByParam(){
+    public void getProductByParam() {
 //        Map param = new HashMap();
 //        param.put("lowPrice",400);
 //        param.put("highPrice",6000);
@@ -101,24 +101,31 @@ public class TestProductDao {
     }
 
     @Test
-    public void testCountProductRows(){
+    public void testGetProductByParam2() {
+        Map map = new HashMap();
+        map.put("name","%奶%");
+        printProductList(productDao.getProductByParam2(map));
+    }
+
+    @Test
+    public void testCountProductRows() {
         int rows = productDao.countProductRows();
         System.out.println(rows);
     }
 
     @Test
-    public void testCountLevel1Product(){
-        List<PageVO> pageVOList= productDao.countLevel1ProductRows();
-        for(PageVO pageVO : pageVOList){
-            System.out.println(pageVO.getNum() +"  "+pageVO.getCategoryLevel1Id());
+    public void testCountLevel1Product() {
+        List<PageVO> pageVOList = productDao.countLevel1ProductRows();
+        for (PageVO pageVO : pageVOList) {
+            System.out.println(pageVO.getNum() + "  " + pageVO.getCategoryLevel1Id());
         }
     }
 
     @Test
-    public void testProductEntity(){
-        ProductEntityDao productEntityDao =session.getMapper(ProductEntityDao.class);
+    public void testProductEntity() {
+        ProductEntityDao productEntityDao = session.getMapper(ProductEntityDao.class);
         List<ProductEntity> entityList = productEntityDao.getAll();
-        for(ProductEntity entity : entityList){
+        for (ProductEntity entity : entityList) {
             System.out.println(entity);
         }
     }

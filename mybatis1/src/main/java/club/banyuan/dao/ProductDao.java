@@ -19,4 +19,6 @@ public interface ProductDao {
     public int countProductRows();
 
     public List<PageVO> countLevel1ProductRows();
+
+    public List<Product> getProductByParam2(Map map);
 }

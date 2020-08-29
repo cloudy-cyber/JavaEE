@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Mapper文件 <-&ndash;&gt; dao接口-->
+<!--mapper中的namespace属性：填写dao接口-->
+<mapper namespace="club.banyuan.dao.ProductDao">
+    <select id="getProductByKeyWords" resultType="Product" parameterType="String">
+    select * from product where name like #{name} or description like #{description};
+</select>
+    <select id="getProductById" resultType="Product" parameterType="int">
+        select * from product where id = #{id};
+    </select>
+</mapper>
