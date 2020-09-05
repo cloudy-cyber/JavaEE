@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="club.banyuan.pojo"/>
+        <package name="club.banyuan.vo"/>
+    </typeAliases>
+    <!--    environments ：可以包含多个数据库配置信息-->
+    <!--                default：默认情况下，使用哪个数据库配置，内容是environment的id属性-->
+    <!--    environment：配置一个数据库信息，id属性就是这个数据库配置的标识-->
+    <!--        transactionManager：数据库事务管理器，交给JDBC处理数据库事务,默认把自动提交事务关闭了，手动提交和回滚-->
+    <!--        dataSource：配置数据源，数据库连接信息-->
+    <!--                type：POOLED，使用的数据库连接管理工具是采用MyBatis自带的数据库连接池-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/auction?&amp;useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12345678"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="club/banyuan/dao/AdminDao.xml"/>
+    </mappers>
+
+</configuration>

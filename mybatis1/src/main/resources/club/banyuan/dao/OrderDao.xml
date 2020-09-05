@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="club.banyuan.dao.OrderDao">
+    <select id="getOrderByUserId" resultType="OrderVo" parameterType="int">
+        select user.userName,`order`.* from user,`order` where user.id = `order`.userId and `order`.userId = #{userId};
+    </select>
+
+    <resultMap id="orderMap" type="Order">
+        <id column="oid" property="id"/>
+        <result column="userId" property="userId"/>
+        <result column="creatTime" property="creatTime"/>
+        <result column="cost" property="cost"/>
+        <result column="serialNumber" property="serialNumber"/>
+        <result column="ologinName" property="loginName"/>
+        <association property="user" javaType="User">
+            <id column="id" property="id"/>
+            <result column="loginName" property="loginName"/>
+            <result column="userName" property="userName"/>
+            <result column="password" property="password"/>
+            <result column="sex" property="sex"/>
+            <result column="identityCode" property="identityCode"/>
+            <result column="email" property="email"/>
+            <result column="mobile" property="mobile"/>
+            <result column="type" property="type"/>
+        </association>
+    </resultMap>
+
+    <select id="getOrderByUserId2" resultMap="orderMap" parameterType="int">
+              select
+           o.*,user.username
+         from shoppingstreet.order o,user
+        where o.userId = user.id and o.userId=#{userId}
+    </select>
+</mapper>

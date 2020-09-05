@@ -1,0 +1,14 @@
+1、创建maven工程
+2、在pom中导入相关jar，并且把打包方式改成war，导入tomcat插件
+3、在main目录下创建webapp目录，在webapp目录下创建WEB-INF目录
+    在WEB-INF目录下，创建web.xml
+4、在web.xml中添加springmvc核心控制器的配置
+5、在resources目录中添加SpringMVC的配置文件 ---  SpringMVC.xml
+    在配置文件中，添加的包扫描路径
+6、在webapp目录下添加页面，index.jsp  result.jsp
+7、添加控制器  club.banyuan.controller.TestController
+    一个普通的java类
+    添加@Controller注解
+    添加请求响应方法  public String test()
+    添加请求路径 在test方法上使用@RequestMapping("请求路径")
+    在test方法中返回页面路径 : "result.jsp"

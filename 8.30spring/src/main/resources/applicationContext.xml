@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userService" class="club.banyuan.service.impl.UserServiceImpl">
+        <!--        property:-->
+        <!--            依据name属性找UserService中的userDao属性-&#45;&#45; setUserDao方法-->
+        <!--                setUserDao方法需要参数，参数类型UserDao类型-->
+        <!--            读取ref属性，bean的Id，依据bean的Id找对象 -&#45;&#45; UserDaoImpl对象-->
+        <!--            调用setUserDao方法，并且传UserDaoImpl对象给方法的参数-->
+        <property name="userDao" ref="userDao"/><!--依赖注入 set方法注入，给类的属性赋值，ref是bean的id-->
+
+    </bean>
+
+    <bean id="userDao" class="club.banyuan.dao.impl.UserDaoImpl"/>
+</beans>

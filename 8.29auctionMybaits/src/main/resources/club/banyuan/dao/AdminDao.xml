@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--Mapper文件 <-&ndash;&gt; dao接口-->
+<!--mapper中的namespace属性：填写dao接口-->
+<mapper namespace="club.banyuan.dao.AdminDao">
+    <insert id="addAdmin" parameterType="Admin">
+    insert into admin values (null,#{adminName},#{pwd});
+</insert>
+    <delete id="delAdmin" parameterType="int">
+    delete from admin where id = #{id};
+</delete>
+    <update id="updateAdmin" parameterType="Admin">
+    update admin set adminName = #{adminName},pwd = #{pwd} where id = #{id};
+    </update>
+    <select id="getAll" resultType="Admin">
+     select * from admin ;
+    </select>
+</mapper>
