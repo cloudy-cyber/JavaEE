@@ -20,9 +20,9 @@ public class LoginServlet extends HttpServlet {
         try {
             Admin admin = adminService.login(userName,password);
             if(admin!=null){
-                response.sendRedirect("home_page.html");
+                response.sendRedirect(request.getContextPath()+"/home_page.html");
             }else {
-                response.sendRedirect(" login.html");
+                response.sendRedirect(request.getContextPath()+"/login.html");
             }
         } catch (Exception e) {
             e.printStackTrace();

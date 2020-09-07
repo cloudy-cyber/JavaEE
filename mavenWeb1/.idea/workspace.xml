@@ -20,26 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e132585-38bf-441a-a4e1-b74d7c9b2eac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mybatis1/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/dao/ProductEntityDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/pojo/ProductEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/vo/PageVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/vo/ProductVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis1/src/main/resources/club/banyuan/dao/ProductEntityDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoppingstreetMybatis/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shoppingstreetMybatis/src/main/resources/SqlMapConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/main/java/club/banyuan/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/main/resources/SqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/main/resources/SqlMapConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/main/resources/club/banyuan/dao/ProductDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/main/resources/club/banyuan/dao/ProductDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/main/resources/club/banyuan/dao/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/main/resources/club/banyuan/dao/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/src/test/java/TestProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/src/test/java/TestProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/target/classes/SqlMapConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/target/classes/SqlMapConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/ProductDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/ProductDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/target/classes/club/banyuan/dao/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/target/test-classes/TestProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/target/test-classes/TestProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis1/流程" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis1/流程" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9.4PersonalJavaWeb/src/club/banyuan/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../9.4PersonalJavaWeb/src/club/banyuan/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9.4PersonalJavaWeb/web/admin/home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/../9.4PersonalJavaWeb/web/home_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9.4PersonalJavaWeb/web/admin/login.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +53,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="SvnConfiguration">
@@ -84,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598428401090</updated>
       <workItem from="1598428404867" duration="7031000" />
+      <workItem from="1599445372014" duration="1072000" />
     </task>
     <servers />
   </component>
@@ -100,6 +84,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="31" key="#Project_Structure" timestamp="1598492069493">
@@ -122,10 +107,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598524617467" />
-    <state x="229" y="89" key="SettingsEditor" timestamp="1598428426146">
+    <state x="229" y="63" key="SettingsEditor" timestamp="1599445850312">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1598428426146" />
+    <state x="229" y="63" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599445850312" />
     <state x="143" y="113" key="new project wizard" timestamp="1598443104454">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
