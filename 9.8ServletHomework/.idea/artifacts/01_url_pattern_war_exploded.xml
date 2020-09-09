@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="01.url-pattern:war exploded">
+    <output-path>$PROJECT_DIR$/02.Hrms-Servlet/practice/01.url-pattern/target/hrms-servlet</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>01.url-pattern</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="01.url-pattern" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/02.Hrms-Servlet/practice/01.url-pattern/target/hrms-servlet/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="01.url-pattern/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="01.url-pattern:war">
+    <output-path>$PROJECT_DIR$/02.Hrms-Servlet/practice/01.url-pattern/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>01.url-pattern</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="hrms-servlet.war">
+      <element id="artifact" artifact-name="01.url-pattern:war exploded" />
+    </root>
+  </artifact>
+</component>
