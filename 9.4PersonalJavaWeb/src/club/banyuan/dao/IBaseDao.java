@@ -9,4 +9,5 @@ public interface IBaseDao {
     public boolean closeResource();
     public boolean closeResource(ResultSet reSet);
     public Object tableToClass(ResultSet rs) throws Exception;
+
 }
