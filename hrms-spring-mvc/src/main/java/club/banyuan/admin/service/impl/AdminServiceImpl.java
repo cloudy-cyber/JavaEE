@@ -17,7 +17,6 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminDao adminDao;
 
-
     @Override
     public Admin login(String username, String password) {
         String passHash = CipherUtil.hmacSha256(password);
@@ -30,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
         if (username == null || username.trim().length() == 0) {
             return adminDao.getAdminList();
         } else {
-            return adminDao.getAdminList(username);
+            return adminDao.getAdminListByName(username);
         }
     }
 
@@ -49,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
     public void updateAdmin(Admin admin) {
         Admin old = adminDao.getAdminById(admin.getId());
         if (old == null) {
-            throw new ServerException("用户id不存在" + admin.getId());
+            throw new ServerException("用户id不存在：" + admin.getId());
         }
         admin.setPassword(CipherUtil.hmacSha256(admin.getPassword()));
         adminDao.updateAdmin(admin);
@@ -63,12 +62,13 @@ public class AdminServiceImpl implements AdminService {
             return Integer.parseInt(t);
         }).collect(Collectors.toList());
 
-        adminDao.deleteAdmin(idList);
+        adminDao.deleteAdminByIds(idList);
+
     }
 
     @Override
     public List<Admin> getAdminList(String username, int page, int row) {
-        return adminDao.getAdminListPage(username, page, row);
+        return adminDao.getAdminListPage(username, (page - 1) * row, row);
     }
 
     @Override

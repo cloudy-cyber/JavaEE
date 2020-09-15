@@ -3,6 +3,8 @@ package club.banyuan.admin.controller;
 import club.banyuan.admin.entity.Admin;
 import club.banyuan.admin.service.AdminService;
 import club.banyuan.common.Constant;
+import club.banyuan.common.RespResult;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,38 +39,35 @@ public class AdminController {
     @RequestMapping("/list")
     // 让spring将方法返回的对象自动序列化为json
     @ResponseBody
-    public Map<String, Object> getAdminList( Integer page, Integer rows, String username) {
+    public RespResult getAdminList(Integer page, Integer rows, String username) {
         List<Admin> adminList = adminService.getAdminList(username, page, rows);
         int total = adminService.getAdminListCount(username);
-        Map<String, Object> rlt = new HashMap<>();
-        rlt.put("rows", adminList);
-        rlt.put("total", total);
-        rlt.put("code", 0);
-        rlt.put("message", "");
-        return rlt;
+        return RespResult.success(total, adminList);
     }
+//    public RespResult getAdminList(String username){
+//        List<Admin> adminList = adminService.getAdminList(username);
+//        int total = adminService.getAdminListCount(username);
+//        return RespResult.success(total,adminList);
+//    }
 
 
     @RequestMapping("/info")
     // 让spring将方法返回的对象自动序列化为json
     @ResponseBody
-    public Map<String, Object> getAdminInfo(HttpSession session) {
-        Map<String, Object> rlt = new HashMap<>();
+    public RespResult getAdminInfo(HttpSession session) {
         Object attribute = session.getAttribute(Constant.ADMIN_SESSION);
         if (attribute != null) {
+            RespResult rlt = RespResult.success();
             rlt.put("username", ((Admin) attribute).getUsername());
-            rlt.put("code", 0);
-            rlt.put("message", "");
+            return rlt;
         } else {
-            rlt.put("code", 1);
-            rlt.put("message", "用户未登录");
+            return RespResult.fail("用户未登录");
         }
-        return rlt;
     }
 
     @RequestMapping("/save")
     @ResponseBody
-    public Map<String, Object> modifyAdmin(Integer id, String username, String password) {
+    public RespResult modifyAdmin(Integer id, String username, String password) {
         Admin admin = new Admin();
         admin.setPassword(password);
         admin.setUsername(username);
@@ -79,10 +78,21 @@ public class AdminController {
             adminService.updateAdmin(admin);
         }
 
-        Map<String, Object> rlt = new HashMap<>();
-        rlt.put("code", 0);
-        rlt.put("message", "");
-        return rlt;
+        return RespResult.success();
+    }
+
+    @RequestMapping("/logout")
+    public String logoutAdmin(HttpSession session) {
+        // session置为失效
+        session.invalidate();
+        return "redirect:/login.html";
+    }
+
+
+    @RequestMapping("/delete")
+    public RespResult deleteAdmin(String ids) {
+        adminService.deleteAdmins(Arrays.asList(ids.split(",")));
+        return RespResult.success();
     }
 
 }

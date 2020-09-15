@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:mvc="http://www.springframework.org/schema/mvc"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans.xsd
   http://www.springframework.org/schema/context
   https://www.springframework.org/schema/context/spring-context.xsd
   http://www.springframework.org/schema/mvc
-  https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+  https://www.springframework.org/schema/mvc/spring-mvc.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-
+  <context:property-placeholder location="classpath:app.properties"/>
   <!--  配置注解扫描，让spring容器在初始化的时候，扫描指定包路径下的所有类，管理被注解标记的bean-->
   <context:component-scan base-package="club.banyuan"/>
 
@@ -19,5 +20,36 @@
 
   <!--  重新映射静态资源路径，使得浏览器的url不需要在路径上增加static即可访问页面-->
   <mvc:resources mapping="/**" location="/static/"/>
+
+  <mvc:interceptors>
+    <mvc:interceptor>
+      <!--  /**/*.html =>  /home_page.html  /abc/home_page.html    -->
+      <!--  /*/*.html =>  /abc/home_page.html  无法匹配/home_page.html -->
+      <mvc:mapping path="/*.html"/>
+      <mvc:exclude-mapping path="/login.html"/>
+      <bean class="club.banyuan.common.AuthInterceptor"/>
+    </mvc:interceptor>
+  </mvc:interceptors>
+
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <property name="driverClass" value="${db.driver}"/>
+    <property name="jdbcUrl" value="${db.url}"/>
+    <property name="user" value="${db.username}"/>
+    <property name="password" value="${db.password}"/>
+  </bean>
+
+  <!--  <mybatis:scan base-package="club.banyuan.admin.dao"/>-->
+
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+    <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+  </bean>
+
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <!--    多个包路径使用,隔开-->
+    <property name="basePackage"
+              value="club.banyuan.admin.dao"/>
+  </bean>
 
 </beans>
