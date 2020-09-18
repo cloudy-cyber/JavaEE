@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.admin.dao.AdminDao">
+  <insert id="addAdmin">
+    INSERT INTO admin (username, password, rolename)
+    VALUES (#{username}, #{password}, 'admin')
+  </insert>
+  <update id="updateAdmin">
+    UPDATE admin
+    SET password = #{password},
+        username = #{username}
+    WHERE id = #{id}
+  </update>
+
+  <delete id="deleteAdmin">
+    DELETE
+    FROM admin
+    WHERE id = #{id}
+  </delete>
+  <delete id="deleteAdminByIds">
+    DELETE FROM admin
+    WHERE id IN
+    <foreach collection="list" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </delete>
+
+  <select id="getAdminList" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename
+    FROM admin;
+  </select>
+
+  <select id="getAdmin" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename
+    FROM admin
+    WHERE username = #{username}
+      AND password = #{password}
+  </select>
+  <select id="getAdminByName" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename
+    FROM admin
+    WHERE username = #{name}
+  </select>
+
+  <!--  如果username为空或null，就不加where条件-->
+  <!--  需要将 username 两边拼接%-->
+  <select id="getAdminListByName" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename
+    FROM admin
+    <where>
+      <if test="username!=null and username!=''">
+        username like concat('%', #{username}, '%')
+      </if>
+    </where>
+  </select>
+  <select id="getAdminById" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename
+    FROM admin
+    WHERE id = #{id}
+  </select>
+  <select id="getAdminListPage" resultType="club.banyuan.admin.entity.Admin">
+    SELECT id, username, password, rolename FROM admin
+    <where>
+      <if test="name!=null and name!=''">
+        username like concat('%', #{name}, '%')
+      </if>
+    </where>
+    limit #{page}, #{row}
+  </select>
+  <select id="getAdminListPageCount" resultType="java.lang.Integer">
+    SELECT count(*) FROM admin
+    <where>
+      <if test="name!=null and name!=''">
+        username like concat('%', #{name}, '%')
+      </if>
+    </where>
+  </select>
+</mapper>

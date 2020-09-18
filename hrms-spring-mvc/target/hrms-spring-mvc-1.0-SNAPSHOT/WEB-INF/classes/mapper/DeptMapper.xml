@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.banyuan.dept.dao.DeptDao">
+    <insert id="addDept">
+        insert into department (name,description) values (#{name},#{description});
+    </insert>
+    <update id="updateDept">
+        update department set name = #{name},description = #{description} where id = #{id};
+    </update>
+    <delete id="deleteDeptByIds">
+        delete from department where id in
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+        #{item}
+        </foreach>
+    </delete>
+    <select id="getDeptListPage" resultType="club.banyuan.dept.entity.Dept">
+        select id,name,description from department
+        <where> <if test="name!=null and name!=''">
+        name like concat('%',#{name},'%')
+    </if>
+        </where>
+    limit #{page},#{rows};
+    </select>
+    <select id="getDeptListPageCount" resultType="java.lang.Integer">
+        select count(*) from department
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat('%'+#{name}+'%')
+            </if>
+        </where>
+    </select>
+    <select id="getDeptList" resultType="club.banyuan.dept.entity.Dept">
+        select id,name,description from department;
+    </select>
+    <select id="getDeptListByName" resultType="club.banyuan.dept.entity.Dept">
+        select id,name,description from department
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat('%'+#{name}+'%')
+            </if>
+        </where>
+    </select>
+</mapper>

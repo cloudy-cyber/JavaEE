@@ -49,7 +49,7 @@
   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
     <!--    多个包路径使用,隔开-->
     <property name="basePackage"
-              value="club.banyuan.admin.dao"/>
+              value="club.banyuan.admin.dao,club.banyuan.dept.dao,club.banyuan.position.dao"/>
   </bean>
 
 </beans>
